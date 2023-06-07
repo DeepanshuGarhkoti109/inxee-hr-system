@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:inxee_hr_application/screens/password_reset_page.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:pinput/pinput.dart';
 
@@ -136,7 +137,14 @@ class _GetEmailOtpState extends State<GetEmailOtp> {
                           horizontal: 20, vertical: 15),
                       child: ButtonInput(
                         text: 'Submit',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PasswordReset(),
+                              ),
+                              (route) => false);
+                        },
                       ),
                     )
                   ],
