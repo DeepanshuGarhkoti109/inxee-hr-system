@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:inxee_hr_application/screens/login_page_employee.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:inxee_hr_application/widgets/text_field_input.dart';
@@ -51,13 +52,28 @@ class _PasswordResetState extends State<PasswordReset> {
                   height: 400,
                 ),
 
-                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Reset Password',
+                      style: GoogleFonts.robotoMono(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 25),
 
                 //username textfield
                 TextFieldInput(
                   hintText: 'Enter your Password',
                   textInputType: TextInputType.text,
                   textEditingController: _passwordController,
+                  isPass: true,
                 ),
 
                 const SizedBox(height: 25),

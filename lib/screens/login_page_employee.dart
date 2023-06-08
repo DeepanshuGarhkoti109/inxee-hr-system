@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:inxee_hr_application/screens/login_page_admin.dart';
 import 'package:inxee_hr_application/screens/otppage.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
@@ -83,28 +84,28 @@ class _LoginPageState extends State<LoginPage> {
                   isPass: true,
                 ),
 
-                const SizedBox(height: 15),
+                const SizedBox(height: 5),
 
-                //forgot password
+                //FORGOT PASSWORD
+
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      GestureDetector(
-                        onTap: navigateToForgotPassword,
-                        child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ),
+                      TextButton(
+                          onPressed: navigateToForgotPassword,
+                          child: Text(
+                            'Forgot Password',
+                            style: GoogleFonts.actor(
+                              fontSize: 17,
+                            ),
+                          )),
                     ],
                   ),
                 ),
 
-                const SizedBox(height: 15),
+                const SizedBox(height: 7),
 
                 //LoginIn Button
 

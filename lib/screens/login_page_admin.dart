@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:inxee_hr_application/screens/admin_phone_otp_login.dart';
 import 'package:inxee_hr_application/screens/login_page_employee.dart';
 import 'package:inxee_hr_application/screens/otppage.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
@@ -27,11 +28,11 @@ class _LoginPageAdminState extends State<LoginPageAdmin> {
     _passwordcontroller.dispose();
   }
 
-  void navigateToOtpPage() {
+  void navigateToAdminOtpPage() {
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(
-        builder: (context) => const OtpPage(),
+        builder: (context) => const AdminPhoneOtpLogin(),
       ),
       (route) => false,
     );
@@ -113,33 +114,34 @@ class _LoginPageAdminState extends State<LoginPageAdmin> {
                   isPass: true,
                 ),
 
-                const SizedBox(height: 15),
+                const SizedBox(height: 5),
 
                 //FORGOT PASSWORD
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      GestureDetector(
-                        onTap: navigateToForgotPassword,
-                        child: Text(
-                          'Forgot Password',
-                          style: TextStyle(color: Colors.grey[600]),
-                        ),
-                      ),
+                      TextButton(
+                          onPressed: navigateToForgotPassword,
+                          child: Text(
+                            'Forgot Password',
+                            style: GoogleFonts.actor(
+                              fontSize: 17,
+                            ),
+                          )),
                     ],
                   ),
                 ),
 
-                const SizedBox(height: 15),
+                const SizedBox(height: 7),
 
                 //NEXT BUTTON
 
                 ButtonInput(
                   text: 'NEXT',
-                  onTap: navigateToOtpPage,
+                  onTap: navigateToAdminOtpPage,
                 ),
 
                 const SizedBox(height: 50),
