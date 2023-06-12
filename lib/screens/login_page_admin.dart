@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:inxee_hr_application/resources/auth_methods.dart';
 import 'package:inxee_hr_application/screens/login_page_employee.dart';
 import 'package:inxee_hr_application/screens/otppage.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
@@ -18,6 +21,24 @@ class LoginPageAdmin extends StatefulWidget {
 class _LoginPageAdminState extends State<LoginPageAdmin> {
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
+  bool _isLoading = false;
+
+  void loginAdmin() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    String res = await AuthMethods().loginUser(
+        email: _emailcontroller.text,
+        password: _passwordcontroller.text,
+        isAdmin: true);
+
+    setState(() {
+      _isLoading = false;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(res)));
+  }
 
   @override
   void dispose() {
@@ -138,8 +159,8 @@ class _LoginPageAdminState extends State<LoginPageAdmin> {
                 //NEXT BUTTON
 
                 ButtonInput(
-                  text: 'NEXT',
-                  onTap: navigateToOtpPage,
+                  text: _isLoading ? '...' : 'NEXT',
+                  onTap: loginAdmin,
                 ),
 
                 const SizedBox(height: 50),

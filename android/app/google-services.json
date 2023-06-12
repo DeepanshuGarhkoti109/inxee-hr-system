@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1077139693374",
+    "project_id": "hr-system-be0e2",
+    "storage_bucket": "hr-system-be0e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077139693374:android:776b8a1a17740bbfd3d66f",
+        "android_client_info": {
+          "package_name": "com.example.inxee_hr_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077139693374-s9k4b2qnhfivi9je72ehc0sgfbmb777q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCX756KgRi0_3tNUyD3_5lymoBenvkYus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077139693374-s9k4b2qnhfivi9je72ehc0sgfbmb777q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

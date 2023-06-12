@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inxee_hr_application/resources/auth_methods.dart';
 import 'package:inxee_hr_application/screens/login_page_admin.dart';
 import 'package:inxee_hr_application/screens/otppage.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
@@ -15,8 +16,26 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
 
-  void LogInUser() {}
+  void LogInUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    String res = await AuthMethods().loginUser(
+        email: _emailController.text,
+        password: _passwordController.text,
+        isAdmin: false);
+
+    setState(() {
+      _isLoading = false;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(res)));
+
+    
+  }
 
   @override
   void dispose() {
@@ -109,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                 //LoginIn Button
 
                 ButtonInput(
-                  text: 'LOGIN',
+                  text: _isLoading ? "..." : 'LOGIN',
                   onTap: LogInUser,
                 ),
 

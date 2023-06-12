@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:inxee_hr_application/resources/auth_methods.dart';
 import 'package:inxee_hr_application/screens/GetEmailOtp.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:inxee_hr_application/widgets/text_field_input.dart';
@@ -16,7 +17,8 @@ class OtpPage extends StatefulWidget {
 class _OtpPageState extends State<OtpPage> {
   final TextEditingController _emailController = TextEditingController();
 
-  void navigateGetOtpScreen() {
+  void navigateGetOtpScreen({required String email}) async {
+    await AuthMethods().forgotPassword(email: email);
     Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
@@ -114,7 +116,8 @@ class _OtpPageState extends State<OtpPage> {
                         padding: const EdgeInsets.all(12.0),
                         child: ButtonInput(
                           text: 'GET OTP',
-                          onTap: navigateGetOtpScreen,
+                          onTap: () => navigateGetOtpScreen(
+                              email: _emailController.text),
                         ),
                       )
                     ],
