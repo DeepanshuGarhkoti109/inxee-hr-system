@@ -1,28 +1,53 @@
+// ignore_for_file: unnecessary_this
+
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  Future<List<String>> forgotPassword({required String email}) async {
+    String res = '';
+    int otp = -1;
+
+    if (email.isEmpty) {
+      res = 'EMAIL_EMPTY';
+      return [res, otp.toString()];
+    }
+
+    try {
+      otp = await this.sendEmail(email: email);
+    } catch (err) {
+      res = err.toString();
+    }
+
+    return [res, otp.toString()];
+  }
+
   Future<String> loginUser(
       {required String email,
       required String password,
       required bool isAdmin}) async {
-    String res = "";
+    String res = '';
 
     try {
-      final userValid = await _firestore
+      final bool userValid = await this
+          ._firestore
           .collection('users')
           .where('email', isEqualTo: email)
           .get()
-          .then((querySnapshot) {
-        if (querySnapshot.docs[0].data()["isAdmin"] != isAdmin) {
+          .then<bool>((QuerySnapshot<Map<String, dynamic>> querySnapshot) {
+        if (querySnapshot.docs[0].data()['isAdmin'] != isAdmin) {
           if (isAdmin == false) {
-            res = "Invalid Employee Email/Password combination";
+            res = 'Invalid Employee Email/Password combination';
           } else {
-            res = "Invalid Admin Email/Password combination";
+            res = 'Invalid Admin Email/Password combination';
           }
           print(res);
 
@@ -30,8 +55,14 @@ class AuthMethods {
         } else {
           return true;
         }
-      }, onError: (err) {
+      }, onError: (dynamic err) {
         res = err.toString();
+        return false;
+      }).catchError((dynamic err) {
+        if (err.runtimeType == IndexError) {
+          res = "Invalid email address";
+        }
+
         return false;
       });
 
@@ -40,39 +71,94 @@ class AuthMethods {
       }
 
       if (email.isNotEmpty && password.isNotEmpty) {
-        await _auth.signInWithEmailAndPassword(
-            email: email, password: password);
-        res = "LOGGED_IN";
+        await this
+            ._auth
+            .signInWithEmailAndPassword(email: email, password: password);
+        res = 'LOGGED_IN';
 
         // TODO REMOVE LATER
-        await _auth.signOut();
+        await this._auth.signOut();
       } else {
-        res = "Email or password field empty";
+        res = 'Email or password field empty';
       }
     } on FirebaseAuthException catch (err) {
-      if (isAdmin == false) {
-        res = "Invalid Employee Email/Password combination";
-      } else {
-        res = "Invalid Admin Email/Password combination";
+      switch (err.code) {
+        case 'invalid-email':
+          {
+            res = 'Invalid email address';
+          }
+          break;
+
+        case 'user-disabled':
+          {
+            res =
+                'The user account associated with this email has been disabled';
+          }
+          break;
+
+        case 'user-not-found':
+          {
+            res = 'No user found for $email';
+          }
+          break;
+
+        case 'wrong-password':
+          {
+            if (isAdmin == false) {
+              res = 'Invalid Employee Email/Password combination';
+            } else {
+              res = 'Invalid Admin Email/Password combination';
+            }
+          }
+          break;
+
+        case 'too-many-requests':
+          {
+            res = "Too many failed login attempts, try again later";
+          }
+          break;
+
+        default:
+          {
+            print(err.stackTrace);
+            res = err.message!;
+          }
+          break;
       }
-      
+
       print(res);
     } catch (err) {
       res = err.toString();
+      print(res);
     }
 
     return res;
   }
 
-  Future<String> forgotPassword({required String email}) async {
-    String res = "";
+  Future<int> sendEmail({required String email}) async {
+    const String serviceId = 'service_q7npjbw';
+    const String templateId = 'template_46rto3e';
+    const String userId = 'x90CTEveScWKEsO4E';
+    final int otp = Random().nextInt(9999);
+    final String message =
+        'The one-time password for resetting the password is: ${otp.toString().padLeft(4, '0')}';
 
-    try {
-      await _auth.sendPasswordResetEmail(email: email);
-    } catch (err) {
-      res = err.toString();
-    }
+    final Uri url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+    final http.Response response = await http.post(url,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: json.encode({
+          'service_id': serviceId,
+          'template_id': templateId,
+          'user_id': userId,
+          'template_params': {
+            'email_recipient': email,
+            'email_subject': 'Password Reset',
+            'email_message': message,
+          }
+        }));
 
-    return res;
+    return otp;
   }
 }

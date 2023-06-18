@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:inxee_hr_application/screens/login_page_employee.dart';
+import 'package:inxee_hr_application/screens/otppage.dart';
 import 'package:inxee_hr_application/screens/password_reset_page.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:pinput/pinput.dart';
 
 class GetEmailOtp extends StatefulWidget {
-  const GetEmailOtp({super.key});
+  final int otp;
+  const GetEmailOtp({Key? key, required this.otp}) : super(key: key);
 
   @override
   State<GetEmailOtp> createState() => _GetEmailOtpState();
 }
 
 class _GetEmailOtpState extends State<GetEmailOtp> {
+  late int otpCopy;
+  bool validPin = false;
+
+  @override
+  void initState() {
+    super.initState();
+    this.otpCopy = widget.otp;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,8 +114,18 @@ class _GetEmailOtpState extends State<GetEmailOtp> {
                                 borderRadius: BorderRadius.circular(12),
                                 shape: BoxShape.rectangle),
                           ),
+                          onCompleted: (pin) => print(pin),
                           pinputAutovalidateMode:
                               PinputAutovalidateMode.onSubmit,
+                          validator: (pin) {
+                            if (int.parse(pin!) == this.otpCopy) {
+                              this.validPin = true;
+                              return null;
+                            } else {
+                              this.validPin = false;
+                              return 'Incorrect Pin';
+                            }
+                          },
                         ),
                       ),
                     ),
@@ -120,7 +142,7 @@ class _GetEmailOtpState extends State<GetEmailOtp> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () => OtpPage(),
                                 child: Text(
                                   'Resend Code',
                                   style: GoogleFonts.actor(
@@ -141,7 +163,9 @@ class _GetEmailOtpState extends State<GetEmailOtp> {
                           Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => PasswordReset(),
+                                builder: (context) => this.validPin == true
+                                    ? PasswordReset()
+                                    : LoginPage(),
                               ),
                               (route) => false);
                         },

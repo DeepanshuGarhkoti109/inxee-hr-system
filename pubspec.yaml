@@ -36,6 +36,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^4.0.4
+  http: ^0.13.6
   pinput: ^2.2.31
 
 dev_dependencies:

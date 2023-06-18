@@ -1,9 +1,12 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
+
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inxee_hr_application/resources/auth_methods.dart';
 import 'package:inxee_hr_application/screens/GetEmailOtp.dart';
+import 'package:inxee_hr_application/screens/login_page_employee.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:inxee_hr_application/widgets/text_field_input.dart';
 
@@ -18,13 +21,34 @@ class _OtpPageState extends State<OtpPage> {
   final TextEditingController _emailController = TextEditingController();
 
   void navigateGetOtpScreen({required String email}) async {
-    await AuthMethods().forgotPassword(email: email);
-    Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) => GetEmailOtp(),
-        ),
-        (route) => false);
+    final output = await AuthMethods().forgotPassword(email: email);
+    String res = output[0];
+    int otp = int.parse(output[1]);
+
+    print(res);
+    print(otp);
+
+    if (res == 'EMAIL_EMPTY') {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('E-mail address cannot be empty')));
+
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginPage(),
+          ),
+          (route) => false);
+      return;
+    } else {
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GetEmailOtp(
+              otp: otp,
+            ),
+          ),
+          (route) => false);
+    }
   }
 
   @override
@@ -63,8 +87,6 @@ class _OtpPageState extends State<OtpPage> {
                   width: 350,
                   child: Column(
                     children: [
-                      //
-
                       Container(
                         alignment: Alignment.centerLeft,
                         child: Padding(
