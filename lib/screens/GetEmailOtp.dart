@@ -15,142 +15,114 @@ class _GetEmailOtpState extends State<GetEmailOtp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-            child: Container(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 1,
-              ),
-
-              //
-
-              Center(
-                child: Image.asset(
-                  'lib/images/43-removebg.png',
-                  height: 300,
+            child: Center(
+          child: Container(
+            padding: const EdgeInsets.all(32),
+            width: 400,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 50,
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white10),
-                    borderRadius: BorderRadius.circular(16),
-                    color: Colors.white54),
-                width: 350,
-                child: Column(
-                  children: [
-                    //
 
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 8),
-                        child: Text(
-                          'Enter OTP',
-                          style: GoogleFonts.robotoMono(
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Enter OTP',
+                    style: GoogleFonts.robotoMono(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                ),
+
+                //
+
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "An 4 digit code has been sent to",
+                    style: GoogleFonts.lato(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 25,
+                ),
+
+                //
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Pinput(
+                      length: 4,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      defaultPinTheme: PinTheme(
+                        height: 64,
+                        width: 64,
+                        textStyle: GoogleFonts.urbanist(
                             fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
+                            color: Colors.black87,
+                            fontWeight: FontWeight.w700),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100],
+                          border: Border.all(
+                            color: Colors.black87.withOpacity(1),
                           ),
+                          borderRadius: BorderRadius.circular(12),
+                          shape: BoxShape.rectangle,
                         ),
                       ),
+                      pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                     ),
-
-                    //
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "An 4 digit code has been sent to",
-                          style: GoogleFonts.lato(
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    SizedBox(
-                      height: 25,
-                    ),
-
-                    //
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Pinput(
-                          length: 4,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          defaultPinTheme: PinTheme(
-                            height: 64,
-                            width: 64,
-                            textStyle: GoogleFonts.urbanist(
-                                fontSize: 30,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.w700),
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.black87.withOpacity(1),
-                                ),
-                                borderRadius: BorderRadius.circular(12),
-                                shape: BoxShape.rectangle),
-                          ),
-                          pinputAutovalidateMode:
-                              PinputAutovalidateMode.onSubmit,
-                        ),
-                      ),
-                    ),
-
-                    SizedBox(
-                      height: 5,
-                    ),
-
-                    //
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Resend Code',
-                                  style: GoogleFonts.actor(
-                                    fontSize: 17,
-                                  ),
-                                )),
-                          ]),
-                    ),
-
-                    //
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 15),
-                      child: ButtonInput(
-                        text: 'Submit',
-                        onTap: () {
-                          Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => PasswordReset(),
-                              ),
-                              (route) => false);
-                        },
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-              )
-            ],
+
+                SizedBox(
+                  height: 5,
+                ),
+
+                //
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child:
+                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Resend Code',
+                          style: GoogleFonts.actor(
+                            fontSize: 17,
+                          ),
+                        )),
+                  ]),
+                ),
+
+                //
+
+                ButtonInput(
+                  text: 'Submit',
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PasswordReset(),
+                        ),
+                        (route) => false);
+                  },
+                ),
+              ],
+            ),
           ),
         )),
       ),

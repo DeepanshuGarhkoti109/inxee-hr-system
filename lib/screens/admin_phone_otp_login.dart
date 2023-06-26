@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inxee_hr_application/panels/admin_panel.dart';
+import 'package:inxee_hr_application/panels_ADMIN/admin_panel.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:pinput/pinput.dart';
 
@@ -17,140 +17,137 @@ class _AdminPhoneOtpLoginState extends State<AdminPhoneOtpLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 75,
-                ),
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.all(32),
+              width: 500,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 50,
+                  ),
 
-                //
+                  //
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'One more step!',
-                      style: GoogleFonts.abhayaLibre(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'One more step!',
+                        style: GoogleFonts.abhayaLibre(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
-                //
-                SizedBox(
-                  height: 5,
-                ),
+                  //
+                  SizedBox(
+                    height: 5,
+                  ),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      '2-step verification',
-                      style: GoogleFonts.lato(
-                        fontSize: 18,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        '2-step verification',
+                        style: GoogleFonts.lato(
+                          fontSize: 18,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
-                SizedBox(
-                  height: 5,
-                ),
+                  SizedBox(
+                    height: 5,
+                  ),
 
-                Wrap(
-                  alignment: WrapAlignment.start,
-                  children: [
-                    Text(
-                      "An 4 digit code has been sent to dhdhjdfxhdghdjhdgxhxhdfc",
-                      style: GoogleFonts.lato(
-                        fontSize: 18,
+                  Wrap(
+                    alignment: WrapAlignment.start,
+                    children: [
+                      Text(
+                        "An 4 digit code has been sent to dhdhjdfxhdghdjhdgxhxhdfc",
+                        style: GoogleFonts.lato(
+                          fontSize: 18,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
-                SizedBox(
-                  height: 35,
-                ),
+                  SizedBox(
+                    height: 35,
+                  ),
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Pinput(
-                      length: 4,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      defaultPinTheme: PinTheme(
-                        height: 64,
-                        width: 64,
-                        textStyle: GoogleFonts.urbanist(
-                            fontSize: 30,
-                            color: Colors.black87,
-                            fontWeight: FontWeight.w700),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(
-                              color: Colors.black87.withOpacity(1),
-                            ),
-                            borderRadius: BorderRadius.circular(12),
-                            shape: BoxShape.rectangle),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Pinput(
+                        length: 4,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        defaultPinTheme: PinTheme(
+                          height: 64,
+                          width: 64,
+                          textStyle: GoogleFonts.urbanist(
+                              fontSize: 30,
+                              color: Colors.black87,
+                              fontWeight: FontWeight.w700),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                color: Colors.black87.withOpacity(1),
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                              shape: BoxShape.rectangle),
+                        ),
+                        pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                       ),
-                      pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                     ),
                   ),
-                ),
 
-                SizedBox(
-                      height: 5,
-                    ),
+                  SizedBox(
+                    height: 5,
+                  ),
 
-                    //
+                  //
 
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Resend Code',
-                                  style: GoogleFonts.actor(
-                                    fontSize: 17,
-                                  ),
-                                )),
-                          ]),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Resend Code',
+                                style: GoogleFonts.actor(
+                                  fontSize: 17,
+                                ),
+                              )),
+                        ]),
+                  ),
 
-                    //
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 15),
-                      child: ButtonInput(
-                        text: 'Login',
-                        onTap: () {
-                          Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => AdminPanelHomeScreen(),
-                              ),
-                              (route) => false);
-                        },
-                      ),
-                    )
-              ],
+                  //
+                  ButtonInput(
+                    text: 'Login',
+                    onTap: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AdminPanelHomeScreen(),
+                          ),
+                          (route) => false);
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),

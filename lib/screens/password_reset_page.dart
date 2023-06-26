@@ -35,67 +35,69 @@ class _PasswordResetState extends State<PasswordReset> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 32),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 1),
-                //icons
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.all(32),
+              width: 500,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 50),
 
-                Image.asset(
-                  'lib/images/pngwing.com (1).png',
-                  height: 400,
-                ),
+                  //icons
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Reset Password',
-                      style: GoogleFonts.robotoMono(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Reset Password',
+                        style: GoogleFonts.robotoMono(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
-                const SizedBox(height: 25),
+                  const SizedBox(height: 25),
 
-                //username textfield
-                TextFieldInput(
-                  hintText: 'Enter your Password',
-                  textInputType: TextInputType.text,
-                  textEditingController: _passwordController,
-                  isPass: true,
-                ),
+                  //username textfield
+                  TextFieldInput(
+                    prefix: Icon(Icons.password),
+                    hintText: '1@345ddshkDejGI^',
+                    labeltext: 'Password',
+                    textInputType: TextInputType.text,
+                    textEditingController: _passwordController,
+                    isPass: true,
+                  ),
 
-                const SizedBox(height: 25),
+                  const SizedBox(height: 25),
 
-                //password textfield
+                  //password textfield
 
-                TextFieldInput(
-                  textEditingController: _confirmpasswordController,
-                  hintText: 'Confirm password',
-                  textInputType: TextInputType.text,
-                  isPass: true,
-                ),
+                  TextFieldInput(
+                    textEditingController: _confirmpasswordController,
+                    prefix: Icon(Icons.password),
+                    hintText: '1@345ddshkDejGI^',
+                    labeltext: 'Confirm password',
+                    textInputType: TextInputType.text,
+                    isPass: true,
+                  ),
 
-                const SizedBox(height: 25),
+                  const SizedBox(height: 25),
 
-                //LoginIn Button
+                  //LoginIn Button
 
-                ButtonInput(
-                  text: 'NEXT',
-                  onTap: navigateToLoginScreen,
-                ),
-              ],
+                  ButtonInput(
+                    text: 'NEXT',
+                    onTap: navigateToLoginScreen,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

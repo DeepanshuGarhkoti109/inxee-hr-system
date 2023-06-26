@@ -6,7 +6,7 @@ import 'package:inxee_hr_application/screens/admin_phone_otp_login.dart';
 import 'package:inxee_hr_application/screens/login_page_employee.dart';
 import 'package:inxee_hr_application/screens/otppage.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
-import 'package:inxee_hr_application/widgets/square_tile.dart';
+
 import 'package:inxee_hr_application/widgets/text_field_input.dart';
 
 class LoginPageAdmin extends StatefulWidget {
@@ -59,135 +59,144 @@ class _LoginPageAdminState extends State<LoginPageAdmin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 32),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 100),
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.all(32),
+              width: 500,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 50),
 
-                //logo
-                Image.asset(
-                  'lib/images/unnamed.png',
-                ),
+                  //logo
+                  Image.asset(
+                    'lib/images/unnamed.png',
+                  ),
 
-                const SizedBox(height: 25),
+                  const SizedBox(height: 25),
 
-//ADMIN LOGIN
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                      child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      'ADMIN LOGIN',
-                      style: GoogleFonts.acme(
-                        textStyle: TextStyle(
-                          color: Colors.black,
-                          letterSpacing: 1,
-                          fontSize: 25,
+                  //ADMIN LOGIN
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                        child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        'ADMIN LOGIN',
+                        style: GoogleFonts.acme(
+                          textStyle: TextStyle(
+                            color: Colors.black,
+                            letterSpacing: 1,
+                            fontSize: 25,
+                          ),
                         ),
                       ),
+                    )),
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  //email textfield
+                  TextFieldInput(
+                      prefix: Icon(Icons.email),
+                      textEditingController: _emailcontroller,
+                      hintText: 'abc@gmail.com',
+                      labeltext: 'Email',
+                      textInputType: TextInputType.emailAddress),
+
+                  const SizedBox(height: 25),
+
+                  //password textfield
+                  TextFieldInput(
+                    prefix: Icon(Icons.password),
+                    textEditingController: _passwordcontroller,
+                    hintText: '1@345ddshkDejGI^',
+                    labeltext: 'Password',
+                    textInputType: TextInputType.text,
+                    isPass: true,
+                  ),
+
+                  const SizedBox(height: 5),
+
+                  //FORGOT PASSWORD
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                            onPressed: navigateToForgotPassword,
+                            child: Text(
+                              'Forgot Password',
+                              style: GoogleFonts.actor(
+                                fontSize: 17,
+                              ),
+                            )),
+                      ],
                     ),
-                  )),
-                ),
+                  ),
 
-                const SizedBox(height: 15),
+                  const SizedBox(height: 7),
 
-                //email textfield
-                TextFieldInput(
-                    textEditingController: _emailcontroller,
-                    hintText: 'Enter your email',
-                    textInputType: TextInputType.emailAddress),
+                  //NEXT BUTTON
 
-                const SizedBox(height: 25),
+                  ButtonInput(
+                    text: 'NEXT',
+                    onTap: navigateToAdminOtpPage,
+                  ),
 
-                //password textfield
-                TextFieldInput(
-                  textEditingController: _passwordcontroller,
-                  hintText: "Enter your password",
-                  textInputType: TextInputType.text,
-                  isPass: true,
-                ),
+                  const SizedBox(height: 50),
 
-                const SizedBox(height: 5),
-
-                //FORGOT PASSWORD
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                          onPressed: navigateToForgotPassword,
+                  //DIVIDER
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Divider(
+                            thickness: 0.5,
+                            color: Colors.grey[400],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: Text(
-                            'Forgot Password',
-                            style: GoogleFonts.actor(
-                              fontSize: 17,
-                            ),
-                          )),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 7),
-
-                //NEXT BUTTON
-
-                ButtonInput(
-                  text: 'NEXT',
-                  onTap: navigateToAdminOtpPage,
-                ),
-
-                const SizedBox(height: 50),
-
-//DIVIDER
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          thickness: 0.5,
-                          color: Colors.grey[400],
+                            'or LOGIN as',
+                            style: TextStyle(color: Colors.grey[700]),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          'or LOGIN as',
-                          style: TextStyle(color: Colors.grey[700]),
+                        Expanded(
+                          child: Divider(
+                            thickness: 0.5,
+                            color: Colors.grey[400],
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          thickness: 0.5,
-                          color: Colors.grey[400],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 45),
-
-                //employee login
-
-                GestureDetector(
-                  onTap: navigateToLoginPageEmployee,
-                  child: Container(
-                    child: SquareTile(
-                      height: 45,
-                      imagePath: 'lib/images/912318.png',
+                      ],
                     ),
                   ),
-                )
-              ],
+
+                  const SizedBox(height: 45),
+
+                  //employee login
+
+                  Container(
+                    width: 50,
+                    height: 50,
+                    child: GestureDetector(
+                        onTap: navigateToLoginPageEmployee,
+                        child: Image.asset('lib/images/912318.png')
+                        // SquareTile(
+                        //   height: 45,
+                        //   imagePath: 'lib/images/912318.png',
+                        // ),
+                        ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
