@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:inxee_hr_application/screens/login_page_employee.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, use_build_context_synchronously, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:inxee_hr_application/resources/auth_methods.dart';
 import 'package:inxee_hr_application/screens/login_page_admin.dart';

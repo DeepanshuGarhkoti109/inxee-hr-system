@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_this
+// ignore_for_file: unnecessary_this, unused_import, avoid_print
 
 import 'dart:convert';
 import 'dart:math';
@@ -18,7 +18,7 @@ class AuthMethods {
 
     if (email.isEmpty) {
       res = 'EMAIL_EMPTY';
-      return [res, otp.toString()];
+      return <String>[res, otp.toString()];
     }
 
     try {
@@ -27,7 +27,7 @@ class AuthMethods {
       res = err.toString();
     }
 
-    return [res, otp.toString()];
+    return <String>[res, otp.toString()];
   }
 
   Future<String> loginUser(
@@ -144,15 +144,15 @@ class AuthMethods {
         'The one-time password for resetting the password is: ${otp.toString().padLeft(4, '0')}';
 
     final Uri url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
-    final http.Response response = await http.post(url,
-        headers: {
+    final http.Response _ = await http.post(url,
+        headers: <String, String>{
           'Content-Type': 'application/json',
         },
-        body: json.encode({
+        body: json.encode(<String, Object>{
           'service_id': serviceId,
           'template_id': templateId,
           'user_id': userId,
-          'template_params': {
+          'template_params': <String, String>{
             'email_recipient': email,
             'email_subject': 'Password Reset',
             'email_message': message,

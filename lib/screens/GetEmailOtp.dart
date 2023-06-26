@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this, prefer_const_constructors, avoid_unnecessary_containers, file_names, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inxee_hr_application/screens/login_page_employee.dart';

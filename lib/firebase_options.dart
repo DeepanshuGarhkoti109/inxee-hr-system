@@ -66,7 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1077139693374',
     projectId: 'hr-system-be0e2',
     storageBucket: 'hr-system-be0e2.appspot.com',
-    iosClientId: '1077139693374-v1cpdkifbvcbj61n33h5c25ockr1aqgl.apps.googleusercontent.com',
+    iosClientId:
+        '1077139693374-v1cpdkifbvcbj61n33h5c25ockr1aqgl.apps.googleusercontent.com',
     iosBundleId: 'com.example.inxeeHrApplication',
   );
 
@@ -76,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1077139693374',
     projectId: 'hr-system-be0e2',
     storageBucket: 'hr-system-be0e2.appspot.com',
-    iosClientId: '1077139693374-v1cpdkifbvcbj61n33h5c25ockr1aqgl.apps.googleusercontent.com',
+    iosClientId:
+        '1077139693374-v1cpdkifbvcbj61n33h5c25ockr1aqgl.apps.googleusercontent.com',
     iosBundleId: 'com.example.inxeeHrApplication',
   );
 }
