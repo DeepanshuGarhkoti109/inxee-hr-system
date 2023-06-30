@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:inxee_hr_application/screens/login_page_employee.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:inxee_hr_application/widgets/text_field_input.dart';
@@ -34,52 +35,69 @@ class _PasswordResetState extends State<PasswordReset> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 32),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 1),
-                //icons
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.all(32),
+              width: 500,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 50),
 
-                Image.asset(
-                  'lib/images/pngwing.com (1).png',
-                  height: 400,
-                ),
+                  //icons
 
-                const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Reset Password',
+                        style: GoogleFonts.robotoMono(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                        ),
+                      ),
+                    ],
+                  ),
 
-                //username textfield
-                TextFieldInput(
-                  hintText: 'Enter your Password',
-                  textInputType: TextInputType.text,
-                  textEditingController: _passwordController,
-                ),
+                  const SizedBox(height: 25),
 
-                const SizedBox(height: 25),
+                  //username textfield
+                  TextFieldInput(
+                    prefix: Icon(Icons.password),
+                    hintText: '1@345ddshkDejGI^',
+                    labeltext: 'Password',
+                    textInputType: TextInputType.text,
+                    textEditingController: _passwordController,
+                    isPass: true,
+                  ),
 
-                //password textfield
+                  const SizedBox(height: 25),
 
-                TextFieldInput(
-                  textEditingController: _confirmpasswordController,
-                  hintText: 'Confirm password',
-                  textInputType: TextInputType.text,
-                  isPass: true,
-                ),
+                  //password textfield
 
-                const SizedBox(height: 25),
+                  TextFieldInput(
+                    textEditingController: _confirmpasswordController,
+                    prefix: Icon(Icons.password),
+                    hintText: '1@345ddshkDejGI^',
+                    labeltext: 'Confirm password',
+                    textInputType: TextInputType.text,
+                    isPass: true,
+                  ),
 
-                //LoginIn Button
+                  const SizedBox(height: 25),
 
-                ButtonInput(
-                  text: 'NEXT',
-                  onTap: navigateToLoginScreen,
-                ),
-              ],
+                  //LoginIn Button
+
+                  ButtonInput(
+                    text: 'NEXT',
+                    onTap: navigateToLoginScreen,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
