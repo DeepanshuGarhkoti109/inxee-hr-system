@@ -23,6 +23,7 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
   final TextEditingController _designationController = TextEditingController();
   final TextEditingController _dateofjoiningController =
       TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
 
   @override
   void dispose() {
@@ -34,6 +35,7 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
     _dateofbirthController.dispose();
     _designationController.dispose();
     _dateofjoiningController.dispose();
+    _ageController.dispose();
   }
 
   @override
@@ -177,7 +179,7 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
                   Row(
                     children: [
                       Container(
-                        width: 185,
+                        width: 210,
                         child: TextFieldInput(
                           textEditingController: _dateofjoiningController,
                           textInputType: TextInputType.datetime,
@@ -202,13 +204,14 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
                       ),
                       SizedBox(width: 10),
                       Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black54),
-                              borderRadius: BorderRadius.circular(5)),
-                          width: 100,
-                          height: 47),
+                        width: 100,
+                        child: TextFieldInput(
+                          labeltext: 'Age ',
+                          prefix: Icon(Icons.calendar_today_rounded),
+                          textEditingController: _ageController,
+                          textInputType: TextInputType.number,
+                        ),
+                      ),
                     ],
                   ),
 
