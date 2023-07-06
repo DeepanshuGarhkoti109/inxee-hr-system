@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "_flutterfire_internals",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.3.2",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/_flutterfire_internals-1.3.3",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -75,49 +75,49 @@
     },
     {
       "name": "file_selector_linux",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/file_selector_linux-0.9.1+3",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/file_selector_linux-0.9.2",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.18"
     },
     {
       "name": "file_selector_macos",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/file_selector_macos-0.9.2",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/file_selector_macos-0.9.3",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "file_selector_platform_interface",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/file_selector_platform_interface-2.5.1",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/file_selector_platform_interface-2.6.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "file_selector_windows",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/file_selector_windows-0.9.2",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/file_selector_windows-0.9.3",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_auth",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth-4.6.2",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth-4.6.3",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_auth_platform_interface",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_platform_interface-6.15.2",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_platform_interface-6.15.3",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_auth_web",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_web-5.5.2",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_auth_web-5.5.3",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.13.1",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.14.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -129,25 +129,25 @@
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_web-2.5.0",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_web-2.6.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_storage",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_storage-11.2.2",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_storage-11.2.4",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_storage_platform_interface",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_storage_platform_interface-4.4.2",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_storage_platform_interface-4.4.3",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_storage_web",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_storage_web-3.6.2",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_storage_web-3.6.4",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -165,9 +165,9 @@
     },
     {
       "name": "flutter_lints",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-2.0.1",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-2.0.2",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.18"
     },
     {
       "name": "flutter_plugin_android_lifecycle",
@@ -195,15 +195,15 @@
     },
     {
       "name": "google_fonts",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/google_fonts-4.0.4",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/google_fonts-4.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
     {
       "name": "http",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/http-0.13.6",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.0"
     },
     {
       "name": "http_parser",
@@ -219,7 +219,7 @@
     },
     {
       "name": "image_picker_android",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/image_picker_android-0.8.7",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/image_picker_android-0.8.7+3",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -261,7 +261,7 @@
     },
     {
       "name": "intl",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.18.0",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.18.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -405,13 +405,13 @@
     },
     {
       "name": "syncfusion_flutter_core",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_core-22.1.34",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_core-22.1.37",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "syncfusion_flutter_datepicker",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_datepicker-22.1.34",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_datepicker-22.1.37",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -447,7 +447,7 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/win32-5.0.3",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/win32-5.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -464,7 +464,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-07-05T14:18:01.206740Z",
+  "generated": "2023-07-06T11:19:36.262057Z",
   "generator": "pub",
   "generatorVersion": "3.0.2"
 }
