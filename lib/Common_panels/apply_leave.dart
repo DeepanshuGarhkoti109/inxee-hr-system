@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -74,7 +72,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     return DateFormat('dd/MM/yyyy').format(dateTime);
   }
 
-// Store the initial range for resetting the calendar
+  // Store the initial range for resetting the calendar
   PickerDateRange _initialSelectedRange = PickerDateRange(
     DateTime.now(),
     DateTime.now(),
@@ -166,7 +164,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                     const SizedBox(height: 10),
                     buildLeaveApplicationForm(),
                     const SizedBox(height: 10),
-                    submitandcancelButton(),
+                    submitAndCancelButton(),
                     const SizedBox(height: 20),
                   ],
                 ),
@@ -256,7 +254,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     );
   }
 
-  Widget submitandcancelButton() {
+  Widget submitAndCancelButton() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 25),
       child: Container(

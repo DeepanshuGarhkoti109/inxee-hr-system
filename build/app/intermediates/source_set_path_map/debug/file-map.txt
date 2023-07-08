@@ -2,7 +2,7 @@ com.example.inxee_hr_application.app-core-1.10.1-0 C:\Users\deepa\.gradle\caches
 com.example.inxee_hr_application.app-jetified-lifecycle-viewmodel-savedstate-2.6.1-1 C:\Users\deepa\.gradle\caches\transforms-3\20d5a7ed0cd7e8b0b711967fb6089b43\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.1\res
 com.example.inxee_hr_application.app-jetified-profileinstaller-1.3.0-2 C:\Users\deepa\.gradle\caches\transforms-3\29eb99b910f6256588e7b61e90fcad98\transformed\jetified-profileinstaller-1.3.0\res
 com.example.inxee_hr_application.app-browser-1.4.0-3 C:\Users\deepa\.gradle\caches\transforms-3\36b7f9e7e96debaa7afa014479b653ee\transformed\browser-1.4.0\res
-com.example.inxee_hr_application.app-jetified-activity-1.7.1-4 C:\Users\deepa\.gradle\caches\transforms-3\652cbb584499e938b76a239b8e66736e\transformed\jetified-activity-1.7.1\res
+com.example.inxee_hr_application.app-jetified-activity-1.7.2-4 C:\Users\deepa\.gradle\caches\transforms-3\43b7618dff5d52202df4cb09abe04266\transformed\jetified-activity-1.7.2\res
 com.example.inxee_hr_application.app-jetified-savedstate-1.2.1-5 C:\Users\deepa\.gradle\caches\transforms-3\75f393223bc8a0c55b37f91cadc691c4\transformed\jetified-savedstate-1.2.1\res
 com.example.inxee_hr_application.app-lifecycle-livedata-2.6.1-6 C:\Users\deepa\.gradle\caches\transforms-3\76fe06cf7cfe740df6cc062a38dd7e1f\transformed\lifecycle-livedata-2.6.1\res
 com.example.inxee_hr_application.app-core-runtime-2.2.0-7 C:\Users\deepa\.gradle\caches\transforms-3\7f24ac6d38dd2e128d7b87de641d9e3a\transformed\core-runtime-2.2.0\res

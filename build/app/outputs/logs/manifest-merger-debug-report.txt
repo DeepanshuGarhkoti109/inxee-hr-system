@@ -74,7 +74,7 @@ MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\deepa\.gradle\ca
 MERGED from [com.google.android.gms:play-services-tasks:18.0.2] C:\Users\deepa\.gradle\caches\transforms-3\ee32023f4f7b44edc17b1b0841878699\transformed\jetified-play-services-tasks-18.0.2\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] C:\Users\deepa\.gradle\caches\transforms-3\aa6cecaafaaa97d07947c95c016f30ef\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:16:1-26:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\deepa\.gradle\caches\transforms-3\7420650d9ff109bb5b4b711e14a89b01\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity:1.7.1] C:\Users\deepa\.gradle\caches\transforms-3\652cbb584499e938b76a239b8e66736e\transformed\jetified-activity-1.7.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.7.2] C:\Users\deepa\.gradle\caches\transforms-3\43b7618dff5d52202df4cb09abe04266\transformed\jetified-activity-1.7.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\4e8ca46d534545ff6676d38221f3c14d\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\deepa\.gradle\caches\transforms-3\36b7f9e7e96debaa7afa014479b653ee\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\fd189442fa6f2ed9266a4e756ebcb7dd\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -165,8 +165,8 @@ MERGED from [com.google.android.gms:play-services-basement:18.1.0] C:\Users\deep
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] C:\Users\deepa\.gradle\caches\transforms-3\aa6cecaafaaa97d07947c95c016f30ef\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:18:5-43
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\deepa\.gradle\caches\transforms-3\7420650d9ff109bb5b4b711e14a89b01\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\deepa\.gradle\caches\transforms-3\7420650d9ff109bb5b4b711e14a89b01\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.7.1] C:\Users\deepa\.gradle\caches\transforms-3\652cbb584499e938b76a239b8e66736e\transformed\jetified-activity-1.7.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.7.1] C:\Users\deepa\.gradle\caches\transforms-3\652cbb584499e938b76a239b8e66736e\transformed\jetified-activity-1.7.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.7.2] C:\Users\deepa\.gradle\caches\transforms-3\43b7618dff5d52202df4cb09abe04266\transformed\jetified-activity-1.7.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.7.2] C:\Users\deepa\.gradle\caches\transforms-3\43b7618dff5d52202df4cb09abe04266\transformed\jetified-activity-1.7.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\4e8ca46d534545ff6676d38221f3c14d\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\4e8ca46d534545ff6676d38221f3c14d\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\deepa\.gradle\caches\transforms-3\36b7f9e7e96debaa7afa014479b653ee\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
