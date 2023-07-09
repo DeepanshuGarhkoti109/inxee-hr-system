@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_cupertino_date_picker_fork/flutter_cupertino_date_picker_fork.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+import 'attendance_page.dart';
 
 class HomePage extends StatefulWidget {
   final VoidCallback? onCheckIn;
   final VoidCallback? onCheckOut;
 
-  const HomePage({super.key, this.onCheckIn, this.onCheckOut});
+  const HomePage({Key? key, this.onCheckIn, this.onCheckOut}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -20,10 +25,89 @@ class _HomePageState extends State<HomePage> {
   DateTime? checkInTime;
   DateTime? checkOutTime;
   DateTime currentDate = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    checkSlideCount();
+  }
+
+  Future<void> checkSlideCount() async {
+    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
+    String filePath = '${appDocumentsDirectory.path}/slideData.txt';
+    File file = File(filePath);
+
+    if (file.existsSync()) {
+      List<String> lines = file.readAsLinesSync();
+      if (lines.isNotEmpty) {
+        slideCount = int.tryParse(lines[0]) ?? 0;
+        if (slideCount == 2) {
+          // User has already checked in and checked out for the day
+          setState(() {
+            showSlideBar = false;
+            String? checkInTimeString = lines.length > 1 ? lines[1] : null;
+            String? checkOutTimeString = lines.length > 2 ? lines[2] : null;
+            if (checkInTimeString != null) {
+              checkInTime = DateFormat('HH:mm').parse(checkInTimeString);
+            }
+            if (checkOutTimeString != null) {
+              checkOutTime = DateFormat('HH:mm').parse(checkOutTimeString);
+            }
+          });
+        } else if (slideCount == 1) {
+          // User has checked in but not checked out
+          setState(() {
+            showSlideBar = true;
+            String? checkInTimeString = lines.length > 1 ? lines[1] : null;
+            if (checkInTimeString != null) {
+              checkInTime = DateFormat('HH:mm').parse(checkInTimeString);
+            }
+          });
+        }
+      }
+    }
+  }
+
+  Future<void> saveSlideCount() async {
+    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
+    String filePath = '${appDocumentsDirectory.path}/slideData.txt';
+    File file = File(filePath);
+
+    String checkInTimeString = DateFormat('HH:mm').format(DateTime.now());
+    String checkOutTimeString =
+        checkOutTime != null ? DateFormat('HH:mm').format(checkOutTime!) : '';
+
+    // Write slide count, check-in time, and check-out time to the file
+    await file.writeAsString(
+      '$slideCount\n'
+      '$checkInTimeString\n'
+      '$checkOutTimeString\n',
+      mode: FileMode.write,
+    );
+
+    if (slideCount == 1 && widget.onCheckIn != null) {
+      widget.onCheckIn!();
+    } else if (slideCount == 2 && widget.onCheckOut != null) {
+      widget.onCheckOut!();
+    }
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AttendancePage(
+            checkInTime: checkInTime,
+            checkOutTime: checkOutTime,
+          ),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -230,6 +314,7 @@ class _HomePageState extends State<HomePage> {
                                 widget.onCheckOut!();
                               }
                             }
+                            saveSlideCount(); // Save slide count and times
                           });
                         }
                       },
@@ -247,6 +332,20 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AttendancePage(
+                      checkInTime: checkInTime,
+                      checkOutTime: checkOutTime,
+                    ),
+                  ),
+                );
+              },
+              child: Text('View Attendance'),
+            ),
           ],
         ),
       ),

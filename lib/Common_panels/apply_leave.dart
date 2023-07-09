@@ -323,50 +323,25 @@ class _ApplyLeaveState extends State<ApplyLeave> {
               child: IconButton(
                 iconSize: 35,
                 onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Confirm Selection'),
-                        content: Text(
-                            'Are you sure you want to submit the leave application?'),
-                        actions: <Widget>[
-                          TextButton(
-                            child: Text('Cancel'),
-                            onPressed: () {
-                              Navigator.of(context).pop(); // Close the dialog
-                            },
-                          ),
-                          TextButton(
-                            child: Text('Submit'),
-                            onPressed: () {
-                              setState(() {
-                                _selectedDateInput =
-                                    _selectedDate; // Store the selected date value
-                                _rangeInput =
-                                    _range; // Store the selected range value
-                                _rangeCountInput =
-                                    _rangeCount; // Store the range count value
-                              });
+                  setState(() {
+                    _selectedDateInput =
+                        _selectedDate; // Store the selected date value
+                    _rangeInput = _range; // Store the selected range value
+                    _rangeCountInput =
+                        _rangeCount; // Store the range count value
+                  });
 
-                              // TODO: Implement leave application submission logic with the form inputs
+                  // TODO: Implement leave application submission logic with the form inputs
 
-                              // Reset the form inputs
-                              _selectedDate = '';
-                              _range = '';
-                              _rangeCount = '';
-                              _selectedDateInput = '';
-                              _rangeInput = '';
-                              _rangeCountInput = '';
-                              _applicationController.clear();
-
-                              Navigator.of(context).pop(); // Close the dialog
-                            },
-                          ),
-                        ],
-                      );
-                    },
-                  );
+                  // Reset the form inputs
+                  _selectedDate = '';
+                  _range = '';
+                  _rangeCount = '';
+                  _selectedDateInput = '';
+                  _rangeInput = '';
+                  _rangeCountInput = '';
+                  _applicationController.clear();
+                  _applicationTitleController.clear();
                 },
                 icon: Icon(
                   Icons.check,

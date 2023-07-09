@@ -16,7 +16,9 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
   String _applicationTitleController = 'Leave title';
 
   static BoxDecoration containerDecoration = BoxDecoration(
-    border: Border.all(color: Colors.black),
+    border: Border.all(
+      color: Colors.black,
+    ),
     borderRadius: BorderRadius.circular(12),
   );
 
@@ -36,7 +38,7 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
+                        border: Border.all(color: Colors.black, width: 10),
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -98,7 +100,19 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    submitAndCancelButton(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Text(
+                            'Date : Dateofappli',
+                            style: textStyle,
+                          ),
+                        ),
+                        submitAndCancelButton(),
+                      ],
+                    ),
                     const SizedBox(height: 10),
                   ],
                 ),
@@ -111,34 +125,20 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
 
   Widget _buildInfoContainerR(String text) {
     return Padding(
-      padding: const EdgeInsets.only(right: 25),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: Colors.grey.shade300,
-        ),
-        child: Text(
-          text,
-          style: textStyle,
-        ),
+      padding: const EdgeInsets.only(right: 10, top: 20, bottom: 20),
+      child: Text(
+        text,
+        style: textStyle,
       ),
     );
   }
 
   Widget _buildInfoContainerL(String text) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: Colors.grey.shade300,
-        ),
-        child: Text(
-          text,
-          style: textStyle,
-        ),
+      padding: const EdgeInsets.only(left: 10, top: 20, bottom: 20),
+      child: Text(
+        text,
+        style: textStyle,
       ),
     );
   }
@@ -146,36 +146,29 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
   Widget buildSelectedInfoContainer(String label, String value) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: Colors.grey.shade300,
-        ),
-        child: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Text(
-                label,
-                style: textStyle,
-              ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Text(
+              label,
+              style: textStyle,
             ),
-            Expanded(
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  value,
-                  style: GoogleFonts.actor(
-                    fontSize: 16,
-                    color: Colors.black,
-                  ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                value,
+                style: GoogleFonts.actor(
+                  fontSize: 16,
+                  color: Colors.black,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -204,93 +197,90 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
   Widget submitAndCancelButton() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 25),
-      child: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.red.shade100,
-                border: Border.all(color: Colors.red, width: 2),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: IconButton(
-                iconSize: 20,
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Cancel Application'),
-                        content: Text(
-                            'Are you sure you want to cancel the leave application?'),
-                        actions: <Widget>[
-                          TextButton(
-                            child: Text('Close'),
-                            onPressed: () {
-                              Navigator.of(context).pop(); // Close the dialog
-                            },
-                          ),
-                          TextButton(
-                            child: Text('Yes'),
-                            onPressed: () {
-                              //
-                            },
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-                icon: Icon(
-                  Icons.close_sharp,
-                  color: Colors.red,
-                ),
+      child: Row(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.red.shade100,
+              border: Border.all(color: Colors.red, width: 2),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: IconButton(
+              iconSize: 20,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('Cancel Application'),
+                      content: Text(
+                          'Are you sure you want to cancel the leave application?'),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text('Close'),
+                          onPressed: () {
+                            Navigator.of(context).pop(); // Close the dialog
+                          },
+                        ),
+                        TextButton(
+                          child: Text('Yes'),
+                          onPressed: () {
+                            //
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              icon: Icon(
+                Icons.close_sharp,
+                color: Colors.red,
               ),
             ),
-            SizedBox(width: 10),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.green.shade100,
-                border: Border.all(color: Colors.green, width: 2),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: IconButton(
-                iconSize: 20,
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Accept Application'),
-                        content: Text(
-                            'Are you sure you want to accept the leave application?'),
-                        actions: <Widget>[
-                          TextButton(
-                            child: Text('Close'),
-                            onPressed: () {
-                              Navigator.of(context).pop(); // Close the dialog
-                            },
-                          ),
-                          TextButton(
-                            child: Text('Accept'),
-                            onPressed: () {
-                              //
-                            },
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-                icon: Icon(
-                  Icons.check,
-                  color: Colors.green,
-                ),
+          ),
+          SizedBox(width: 10),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.green.shade100,
+              border: Border.all(color: Colors.green, width: 2),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: IconButton(
+              iconSize: 20,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('Accept Application'),
+                      content: Text(
+                          'Are you sure you want to accept the leave application?'),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text('Close'),
+                          onPressed: () {
+                            Navigator.of(context).pop(); // Close the dialog
+                          },
+                        ),
+                        TextButton(
+                          child: Text('Accept'),
+                          onPressed: () {
+                            //
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              icon: Icon(
+                Icons.check,
+                color: Colors.green,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

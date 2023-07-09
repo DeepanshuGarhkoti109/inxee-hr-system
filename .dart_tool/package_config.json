@@ -368,6 +368,48 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "shared_preferences",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "shared_preferences_android",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences_android-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "shared_preferences_foundation",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences_foundation-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "shared_preferences_linux",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences_linux-2.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "shared_preferences_platform_interface",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences_platform_interface-2.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "shared_preferences_web",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences_web-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "shared_preferences_windows",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/shared_preferences_windows-2.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/Users/deepa/Downloads/flutter_windows_3.10.2-stable/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -384,6 +426,18 @@
       "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/source_span-1.9.1",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "sqflite",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/sqflite-2.2.8+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "sqflite_common",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/sqflite_common-2.4.5+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "stack_trace",
@@ -414,6 +468,12 @@
       "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_datepicker-22.1.37",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "synchronized",
+      "rootUri": "file:///C:/Users/deepa/AppData/Local/Pub/Cache/hosted/pub.dev/synchronized-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "term_glyph",
@@ -464,7 +524,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-07-06T11:26:37.977184Z",
+  "generated": "2023-07-09T11:23:58.422733Z",
   "generator": "pub",
   "generatorVersion": "3.0.2"
 }
