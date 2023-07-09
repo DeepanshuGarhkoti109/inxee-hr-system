@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -12,6 +14,8 @@ class ApplyLeave extends StatefulWidget {
 
 class _ApplyLeaveState extends State<ApplyLeave> {
   final TextEditingController _applicationController = TextEditingController();
+  final TextEditingController _applicationTitleController =
+      TextEditingController();
 
   String _selectedDate = '';
   String _range = '';
@@ -188,7 +192,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
         child: Row(
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Text(
                 label,
                 style: GoogleFonts.roboto(
@@ -200,12 +204,12 @@ class _ApplyLeaveState extends State<ApplyLeave> {
             Expanded(
               child: Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 alignment: Alignment.centerLeft,
                 child: Text(
                   value,
                   style: GoogleFonts.actor(
-                    fontSize: 18,
+                    fontSize: 15,
                     color: Colors.black,
                   ),
                 ),
@@ -221,7 +225,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
@@ -236,18 +240,34 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            const SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
               child: TextFormField(
-                controller: _applicationController,
+                maxLength: 100,
+                controller: _applicationTitleController,
                 decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Application',
-                    hintStyle: TextStyle(fontSize: 17)),
+                  contentPadding: EdgeInsets.only(bottom: 0, top: 0),
+                  border: InputBorder.none,
+                  labelText: 'Title ',
+                  labelStyle: TextStyle(fontSize: 17),
+                ),
                 maxLines: null,
               ),
             ),
-            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: TextFormField(
+                maxLength: 500,
+                controller: _applicationController,
+                decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(bottom: 0, top: 0),
+                    border: InputBorder.none,
+                    labelText: 'Application',
+                    labelStyle: TextStyle(fontSize: 15)),
+                maxLines: null,
+              ),
+            ),
           ],
         ),
       ),
@@ -280,6 +300,7 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                     _rangeCountInput = ''; // Reset range count input value
                     _applicationController
                         .clear(); // Clear the application text field
+                    _applicationTitleController.clear();
                     _initialSelectedRange = PickerDateRange(
                       DateTime.now(),
                       DateTime.now(),
@@ -302,24 +323,50 @@ class _ApplyLeaveState extends State<ApplyLeave> {
               child: IconButton(
                 iconSize: 35,
                 onPressed: () {
-                  setState(() {
-                    _selectedDateInput =
-                        _selectedDate; // Store the selected date value
-                    _rangeInput = _range; // Store the selected range value
-                    _rangeCountInput =
-                        _rangeCount; // Store the range count value
-                  });
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Confirm Selection'),
+                        content: Text(
+                            'Are you sure you want to submit the leave application?'),
+                        actions: <Widget>[
+                          TextButton(
+                            child: Text('Cancel'),
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                          ),
+                          TextButton(
+                            child: Text('Submit'),
+                            onPressed: () {
+                              setState(() {
+                                _selectedDateInput =
+                                    _selectedDate; // Store the selected date value
+                                _rangeInput =
+                                    _range; // Store the selected range value
+                                _rangeCountInput =
+                                    _rangeCount; // Store the range count value
+                              });
 
-                  // TODO: Implement leave application submission logic with the form inputs
+                              // TODO: Implement leave application submission logic with the form inputs
 
-                  // Reset the form inputs
-                  _selectedDate = '';
-                  _range = '';
-                  _rangeCount = '';
-                  _selectedDateInput = '';
-                  _rangeInput = '';
-                  _rangeCountInput = '';
-                  _applicationController.clear();
+                              // Reset the form inputs
+                              _selectedDate = '';
+                              _range = '';
+                              _rangeCount = '';
+                              _selectedDateInput = '';
+                              _rangeInput = '';
+                              _rangeCountInput = '';
+                              _applicationController.clear();
+
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 },
                 icon: Icon(
                   Icons.check,

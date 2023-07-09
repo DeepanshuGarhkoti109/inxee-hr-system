@@ -12,6 +12,8 @@ class ApplyLeaveToAdmin extends StatefulWidget {
 
 class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
   String _testValues = '28/02/2024';
+  String _testrangeCount = '5';
+  String _applicationTitleController = 'Leave title';
 
   static BoxDecoration containerDecoration = BoxDecoration(
     border: Border.all(color: Colors.black),
@@ -24,7 +26,7 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: ListView.separated(
             itemCount: 20,
             itemBuilder: (BuildContext context, int index) {
@@ -63,7 +65,7 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         _buildInfoContainerL('Total Days : 75'),
-                        const SizedBox(width: 50),
+                        const SizedBox(width: 20),
                         _buildInfoContainerR('Total Leave : 75'),
                       ],
                     ),
@@ -72,7 +74,7 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         _buildInfoContainerL('Paid Leave : 05'),
-                        const SizedBox(width: 50),
+                        const SizedBox(width: 20),
                         _buildInfoContainerR('Unpaid Leave : 5'),
                       ],
                     ),
@@ -82,6 +84,22 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
                       // _selectedDate,
                       _testValues,
                     ),
+                    const SizedBox(height: 10),
+                    buildSelectedInfoContainer(
+                      'No. of days: ',
+                      _testrangeCount,
+                    ),
+                    const SizedBox(height: 10),
+                    GestureDetector(
+                      onTap: _applicationForLeave,
+                      child: buildSelectedInfoContainer(
+                        'Application: ',
+                        _applicationTitleController,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    submitAndCancelButton(),
+                    const SizedBox(height: 10),
                   ],
                 ),
               );
@@ -153,6 +171,121 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
                     fontSize: 16,
                     color: Colors.black,
                   ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _applicationForLeave() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Application'),
+          content: Text(
+              'sdasdhckscbsknchsdbxcjkcuidbchabxchjdbxcuvdc bhxbc dcasbcgasvcsah cas cscfsytcsachavschsv  sgvcyts cscv yatscscsctsgc c'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget submitAndCancelButton() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 25),
+      child: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.red.shade100,
+                border: Border.all(color: Colors.red, width: 2),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: IconButton(
+                iconSize: 20,
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Cancel Application'),
+                        content: Text(
+                            'Are you sure you want to cancel the leave application?'),
+                        actions: <Widget>[
+                          TextButton(
+                            child: Text('Close'),
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                          ),
+                          TextButton(
+                            child: Text('Yes'),
+                            onPressed: () {
+                              //
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                icon: Icon(
+                  Icons.close_sharp,
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            SizedBox(width: 10),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.green.shade100,
+                border: Border.all(color: Colors.green, width: 2),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: IconButton(
+                iconSize: 20,
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Accept Application'),
+                        content: Text(
+                            'Are you sure you want to accept the leave application?'),
+                        actions: <Widget>[
+                          TextButton(
+                            child: Text('Close'),
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                          ),
+                          TextButton(
+                            child: Text('Accept'),
+                            onPressed: () {
+                              //
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                icon: Icon(
+                  Icons.check,
+                  color: Colors.green,
                 ),
               ),
             ),
