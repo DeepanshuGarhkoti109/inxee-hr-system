@@ -51,7 +51,7 @@ class _AdminSalaryPanelState extends State<AdminSalaryPanel> {
               Tab(
                 child: Container(
                   child: Text(
-                    'Employee Salary',
+                    'Employees',
                     style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: 18,

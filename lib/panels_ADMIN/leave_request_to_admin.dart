@@ -22,100 +22,108 @@ class _ApplyLeaveToAdminState extends State<ApplyLeaveToAdmin> {
     borderRadius: BorderRadius.circular(12),
   );
 
+  static BoxDecoration subcontainerDecoration = BoxDecoration(
+    border: Border.all(color: Colors.black, width: 10),
+    borderRadius: const BorderRadius.only(
+      topLeft: Radius.circular(10),
+      topRight: Radius.circular(10),
+    ),
+    color: Colors.black,
+  );
+
   static const TextStyle textStyle =
       TextStyle(fontSize: 16, color: Colors.black);
 
   @override
   Widget build(BuildContext context) => Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.only(left: 10, right: 10),
           child: ListView.separated(
             itemCount: 20,
             itemBuilder: (BuildContext context, int index) {
-              return Container(
-                decoration: containerDecoration,
-                child: Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 10),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                        ),
-                        color: Colors.black,
-                      ),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          radius: 30,
-                          backgroundImage: NetworkImage(
-                            'https://images.unsplash.com/photo-1517423738875-5ce310acd3da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1970&q=80',
+              return Column(
+                children: [
+                  const SizedBox(height: 10),
+                  Container(
+                    decoration: containerDecoration,
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: subcontainerDecoration,
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              radius: 30,
+                              backgroundImage: NetworkImage(
+                                'https://images.unsplash.com/photo-1517423738875-5ce310acd3da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1970&q=80',
+                              ),
+                            ),
+                            title: Text(
+                              'Deepanshu Garhkoti',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                            subtitle: Text(
+                              'deepanshugarhkoti@gmail.com',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                         ),
-                        title: Text(
-                          'Deepanshu Garhkoti',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildInfoContainerL('Total Days : 75'),
+                            const SizedBox(width: 20),
+                            _buildInfoContainerR('Total Leave : 75'),
+                          ],
                         ),
-                        subtitle: Text(
-                          'deepanshugarhkoti@gmail.com',
-                          style: TextStyle(color: Colors.white),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildInfoContainerL('Paid Leave : 05'),
+                            const SizedBox(width: 20),
+                            _buildInfoContainerR('Unpaid Leave : 5'),
+                          ],
                         ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _buildInfoContainerL('Total Days : 75'),
-                        const SizedBox(width: 20),
-                        _buildInfoContainerR('Total Leave : 75'),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _buildInfoContainerL('Paid Leave : 05'),
-                        const SizedBox(width: 20),
-                        _buildInfoContainerR('Unpaid Leave : 5'),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    buildSelectedInfoContainer(
-                      'Selected date: ',
-                      // _selectedDate,
-                      _testValues,
-                    ),
-                    const SizedBox(height: 10),
-                    buildSelectedInfoContainer(
-                      'No. of days: ',
-                      _testrangeCount,
-                    ),
-                    const SizedBox(height: 10),
-                    GestureDetector(
-                      onTap: _applicationForLeave,
-                      child: buildSelectedInfoContainer(
-                        'Application: ',
-                        _applicationTitleController,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10.0),
-                          child: Text(
-                            'Date : Dateofappli',
-                            style: textStyle,
+                        const SizedBox(height: 10),
+                        buildSelectedInfoContainer(
+                          'Selected date: ',
+                          // _selectedDate,
+                          _testValues,
+                        ),
+                        const SizedBox(height: 10),
+                        buildSelectedInfoContainer(
+                          'No. of days: ',
+                          _testrangeCount,
+                        ),
+                        const SizedBox(height: 10),
+                        GestureDetector(
+                          onTap: _applicationForLeave,
+                          child: buildSelectedInfoContainer(
+                            'Application: ',
+                            _applicationTitleController,
                           ),
                         ),
-                        submitAndCancelButton(),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10.0),
+                              child: Text(
+                                'Date : Dateofappli',
+                                style: textStyle,
+                              ),
+                            ),
+                            submitAndCancelButton(),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
                       ],
                     ),
-                    const SizedBox(height: 10),
-                  ],
-                ),
+                  ),
+                ],
               );
             },
             separatorBuilder: (context, index) => const SizedBox(height: 10),

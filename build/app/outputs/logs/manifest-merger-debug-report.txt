@@ -51,11 +51,13 @@ INJECTED from D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\android\app\src\ma
 INJECTED from D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\android\app\src\main\AndroidManifest.xml:1:1-34:12
 INJECTED from D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\android\app\src\main\AndroidManifest.xml:1:1-34:12
 MERGED from D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\android\app\src\main\AndroidManifest.xml:1:1-34:12
+MERGED from [:shared_preferences_android] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:firebase_auth] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_storage] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_core] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:image_picker_android] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [:flutter_plugin_android_lifecycle] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:sqflite] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:smart_auth] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\smart_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-auth:20.4.0] C:\Users\deepa\.gradle\caches\transforms-3\f4a69b245c4b30362dd57734d56dc18b\transformed\jetified-play-services-auth-20.4.0\AndroidManifest.xml:17:1-40:12
@@ -76,9 +78,9 @@ MERGED from [com.google.android.gms:play-services-basement:18.1.0] C:\Users\deep
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\deepa\.gradle\caches\transforms-3\7420650d9ff109bb5b4b711e14a89b01\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.7.2] C:\Users\deepa\.gradle\caches\transforms-3\43b7618dff5d52202df4cb09abe04266\transformed\jetified-activity-1.7.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\4e8ca46d534545ff6676d38221f3c14d\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.browser:browser:1.4.0] C:\Users\deepa\.gradle\caches\transforms-3\36b7f9e7e96debaa7afa014479b653ee\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\fd189442fa6f2ed9266a4e756ebcb7dd\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\deepa\.gradle\caches\transforms-3\b4a8a78ef3b97ff4bd1712b763945fb9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\deepa\.gradle\caches\transforms-3\36b7f9e7e96debaa7afa014479b653ee\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-ktx:1.10.1] C:\Users\deepa\.gradle\caches\transforms-3\9f43b7493e8528e35bd064e1f7effb38\transformed\jetified-core-ktx-1.10.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\0beb7f2299d6ecddde1f3350e3c84a32\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.10.1] C:\Users\deepa\.gradle\caches\transforms-3\0e6ea8425eb3b2d09d686c339308d8b3\transformed\core-1.10.1\AndroidManifest.xml:17:1-30:12
@@ -119,6 +121,8 @@ uses-sdk
 INJECTED from D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\android\app\src\main\AndroidManifest.xml
 INJECTED from D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\android\app\src\main\AndroidManifest.xml
+MERGED from [:shared_preferences_android] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:shared_preferences_android] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_auth] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_auth] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_storage] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -129,6 +133,8 @@ MERGED from [:image_picker_android] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-sys
 MERGED from [:image_picker_android] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:sqflite] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:sqflite] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:smart_auth] D:\mannu\Flutter\INXEE_HRSystem\inxee-hr-system\build\smart_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -169,12 +175,12 @@ MERGED from [androidx.activity:activity:1.7.2] C:\Users\deepa\.gradle\caches\tra
 MERGED from [androidx.activity:activity:1.7.2] C:\Users\deepa\.gradle\caches\transforms-3\43b7618dff5d52202df4cb09abe04266\transformed\jetified-activity-1.7.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\4e8ca46d534545ff6676d38221f3c14d\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\4e8ca46d534545ff6676d38221f3c14d\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.browser:browser:1.4.0] C:\Users\deepa\.gradle\caches\transforms-3\36b7f9e7e96debaa7afa014479b653ee\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.browser:browser:1.4.0] C:\Users\deepa\.gradle\caches\transforms-3\36b7f9e7e96debaa7afa014479b653ee\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\fd189442fa6f2ed9266a4e756ebcb7dd\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\fd189442fa6f2ed9266a4e756ebcb7dd\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\deepa\.gradle\caches\transforms-3\b4a8a78ef3b97ff4bd1712b763945fb9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\deepa\.gradle\caches\transforms-3\b4a8a78ef3b97ff4bd1712b763945fb9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\deepa\.gradle\caches\transforms-3\36b7f9e7e96debaa7afa014479b653ee\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\deepa\.gradle\caches\transforms-3\36b7f9e7e96debaa7afa014479b653ee\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-ktx:1.10.1] C:\Users\deepa\.gradle\caches\transforms-3\9f43b7493e8528e35bd064e1f7effb38\transformed\jetified-core-ktx-1.10.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-ktx:1.10.1] C:\Users\deepa\.gradle\caches\transforms-3\9f43b7493e8528e35bd064e1f7effb38\transformed\jetified-core-ktx-1.10.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\deepa\.gradle\caches\transforms-3\0beb7f2299d6ecddde1f3350e3c84a32\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
