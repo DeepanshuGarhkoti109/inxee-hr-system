@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inxee_hr_application/employee_panels/panels_ADMIN/employee_panel.dart';
+import 'package:inxee_hr_application/employee_panels/employee_panel.dart';
+
 import 'package:inxee_hr_application/screens/login_page_admin.dart';
 import 'package:inxee_hr_application/screens/otppage.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';

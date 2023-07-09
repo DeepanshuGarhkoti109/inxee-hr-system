@@ -283,12 +283,15 @@ class _ApplyLeaveState extends State<ApplyLeave> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Colors.red.shade100,
-                border: Border.all(color: Colors.red, width: 2),
-                borderRadius: BorderRadius.circular(30),
+                color: Colors.black,
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(5),
               ),
-              child: IconButton(
-                iconSize: 35,
+              child: TextButton(
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(color: Colors.white),
+                ),
                 onPressed: () {
                   setState(() {
                     _selectedDate = ''; // Reset selected date value
@@ -307,21 +310,20 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                     ); // Reset the initial range of the calendar.
                   });
                 },
-                icon: Icon(
-                  Icons.close_sharp,
-                  color: Colors.red,
-                ),
               ),
             ),
             SizedBox(width: 10),
             Container(
               decoration: BoxDecoration(
-                color: Colors.green.shade100,
-                border: Border.all(color: Colors.green, width: 2),
-                borderRadius: BorderRadius.circular(30),
+                color: Colors.black,
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(5),
               ),
-              child: IconButton(
-                iconSize: 35,
+              child: TextButton(
+                child: Text(
+                  'Summit',
+                  style: TextStyle(color: Colors.white),
+                ),
                 onPressed: () {
                   setState(() {
                     _selectedDateInput =
@@ -332,6 +334,31 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                   });
 
                   // TODO: Implement leave application submission logic with the form inputs
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Cancel Application'),
+                        content: Text(
+                            'Are you sure you want to summit the leave application?'),
+                        actions: <Widget>[
+                          TextButton(
+                            child: Text('Cancel'),
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                          ),
+                          TextButton(
+                            child: Text('Summit'),
+                            onPressed: () {
+                              //
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
 
                   // Reset the form inputs
                   _selectedDate = '';
@@ -343,10 +370,6 @@ class _ApplyLeaveState extends State<ApplyLeave> {
                   _applicationController.clear();
                   _applicationTitleController.clear();
                 },
-                icon: Icon(
-                  Icons.check,
-                  color: Colors.green,
-                ),
               ),
             ),
           ],

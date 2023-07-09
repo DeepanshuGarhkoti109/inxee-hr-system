@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:inxee_hr_application/Common_panels/apply_leave.dart';
-import 'package:inxee_hr_application/employee_panels/panels_ADMIN/navigationbar_employee.dart';
+import 'package:inxee_hr_application/employee_panels/navigationbar_employee.dart';
 
 class EmployeeLeavePanel extends StatefulWidget {
   const EmployeeLeavePanel({super.key});

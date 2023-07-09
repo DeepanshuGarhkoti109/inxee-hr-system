@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inxee_hr_application/Common_panels/home_screen.dart';
 import 'package:inxee_hr_application/Common_panels/attendance_page.dart';
-import 'package:inxee_hr_application/employee_panels/panels_ADMIN/navigationbar_employee.dart';
+import 'package:inxee_hr_application/employee_panels/navigationbar_employee.dart';
 
 class EmployeePanelHomeScreen extends StatefulWidget {
   const EmployeePanelHomeScreen({super.key});

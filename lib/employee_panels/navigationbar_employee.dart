@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inxee_hr_application/employee_panels/panels_ADMIN/employee_leave_page.dart';
-import 'package:inxee_hr_application/employee_panels/panels_ADMIN/employee_panel.dart';
-import 'package:inxee_hr_application/employee_panels/panels_ADMIN/employee_report_panel.dart';
-import 'package:inxee_hr_application/employee_panels/panels_ADMIN/employee_salary_page.dart';
+
 import 'package:inxee_hr_application/Common_panels/profile_page.dart';
+import 'package:inxee_hr_application/employee_panels/employee_leave_page.dart';
+import 'package:inxee_hr_application/employee_panels/employee_panel.dart';
+import 'package:inxee_hr_application/employee_panels/employee_report_panel.dart';
+import 'package:inxee_hr_application/employee_panels/employee_salary_page.dart';
 
 class NavigationDrawerEmployee extends StatelessWidget {
   NavigationDrawerEmployee({super.key});
