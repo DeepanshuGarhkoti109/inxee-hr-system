@@ -1,12 +1,12 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:inxee_hr_application/panels_ADMIN/add_new_employee.dart';
 import 'package:inxee_hr_application/panels_ADMIN/employee_admin_profile.dart';
 import 'package:inxee_hr_application/panels_ADMIN/navigationbar_admin.dart';
 
 class AdminEmployeesDetailsPage extends StatefulWidget {
-  const AdminEmployeesDetailsPage({super.key});
+  const AdminEmployeesDetailsPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<AdminEmployeesDetailsPage> createState() =>
@@ -19,6 +19,15 @@ class _AdminEmployeesDetailsPageState extends State<AdminEmployeesDetailsPage> {
     borderRadius: BorderRadius.circular(5),
     color: Colors.white,
   );
+
+  List<Employee> _employees = [
+    Employee(
+      name: 'Deepanshu Garhkoti',
+      email: 'johndoe@example.com',
+      designation: 'Software Engineer',
+      password: '********',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -37,7 +46,13 @@ class _AdminEmployeesDetailsPageState extends State<AdminEmployeesDetailsPage> {
                     MaterialPageRoute(
                       builder: (context) => AddEmployeePage(),
                     ),
-                  );
+                  ).then((employee) {
+                    if (employee != null) {
+                      setState(() {
+                        _employees.add(employee);
+                      });
+                    }
+                  });
                 },
               ),
             ),
@@ -47,8 +62,9 @@ class _AdminEmployeesDetailsPageState extends State<AdminEmployeesDetailsPage> {
         body: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
           child: ListView.builder(
-              itemCount: 10,
+              itemCount: _employees.length,
               itemBuilder: (BuildContext context, int index) {
+                final employee = _employees[index];
                 return Column(
                   children: [
                     SizedBox(height: 10),
@@ -61,13 +77,13 @@ class _AdminEmployeesDetailsPageState extends State<AdminEmployeesDetailsPage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => employeeToAdminProfilePage(
-                                fullName: 'John Doe',
+                                fullName: employee.name,
                                 phoneNumber: '1234567890',
-                                email: 'johndoe@example.com',
+                                email: employee.email,
                                 address: '123 Main Street',
                                 sex: 'Male',
                                 dateOfBirth: '1990/01/01',
-                                designation: 'Software Engineer',
+                                designation: employee.designation,
                                 dateOfJoining: '2020/01/01',
                                 age: '33',
                               ),
@@ -81,11 +97,11 @@ class _AdminEmployeesDetailsPageState extends State<AdminEmployeesDetailsPage> {
                           ),
                         ),
                         title: Text(
-                          'Deepanshu Garhkoti',
+                          employee.name,
                           style: TextStyle(fontSize: 17, color: Colors.black),
                         ),
                         subtitle: Text(
-                          'Designation',
+                          employee.designation,
                           style: TextStyle(color: Colors.black),
                         ),
                       ),
