@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inxee_hr_application/panels_ADMIN/admin_employees_details.dart';
-import 'package:inxee_hr_application/panels_ADMIN/admin_leave_panel.dart';
+import 'package:inxee_hr_application/panels_ADMIN/employee_details/admin_employees_details.dart';
+import 'package:inxee_hr_application/panels_ADMIN/leave/admin_leave_panel.dart';
 import 'package:inxee_hr_application/panels_ADMIN/admin_panel.dart';
 import 'package:inxee_hr_application/panels_ADMIN/admin_report_panel.dart';
-import 'package:inxee_hr_application/panels_ADMIN/admin_salary_panel.dart';
+import 'package:inxee_hr_application/panels_ADMIN/salary/admin_salary_panel.dart';
 import 'package:inxee_hr_application/panels_ADMIN/check_in_details.dart';
 import 'package:inxee_hr_application/Common_panels/profile_page.dart';
 
