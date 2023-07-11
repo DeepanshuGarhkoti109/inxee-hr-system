@@ -50,6 +50,12 @@ class _ProfilePageState extends State<ProfilePage> {
         elevation: 0,
         centerTitle: true,
         title: Text('P R O F I L E'),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: Icon(Icons.edit_note_outlined, size: 30),
+          ),
+        ],
       ),
 
       //
