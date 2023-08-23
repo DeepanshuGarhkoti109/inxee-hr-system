@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class SquareTile extends StatelessWidget {
@@ -23,7 +25,7 @@ class SquareTile extends StatelessWidget {
             textPrefix,
             style: TextStyle(
                 fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-          )
+          ),
         ],
       ),
     );

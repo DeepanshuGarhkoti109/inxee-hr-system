@@ -1,12 +1,14 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, use_build_context_synchronously, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, use_build_context_synchronously, avoid_unnecessary_containers, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:inxee_hr_application/employee_panels/employee_panel.dart';
 import 'package:inxee_hr_application/resources/auth_methods.dart';
 import 'package:inxee_hr_application/screens/login_page_admin.dart';
 import 'package:inxee_hr_application/screens/otppage.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:inxee_hr_application/widgets/text_field_input.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -34,7 +36,17 @@ class _LoginPageState extends State<LoginPage> {
       _isLoading = false;
     });
 
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(res)));
+    if (res != 'LOGGED_IN') {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(res)));
+    } else {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('email', _emailController.text);
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const EmployeePanelHomeScreen()),
+          (route) => false);
+    }
   }
 
   @override

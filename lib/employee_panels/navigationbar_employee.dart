@@ -1,19 +1,18 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_declarations
+// ignore_for_file: prefer_const_constructors, prefer_const_declarations, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inxee_hr_application/panels_ADMIN/admin_employees_details.dart';
-import 'package:inxee_hr_application/panels_ADMIN/admin_leave_panel.dart';
-import 'package:inxee_hr_application/panels_ADMIN/admin_panel.dart';
-import 'package:inxee_hr_application/panels_ADMIN/admin_report_panel.dart';
-import 'package:inxee_hr_application/panels_ADMIN/admin_salary_panel.dart';
-import 'package:inxee_hr_application/panels_ADMIN/check_in_details.dart';
+
 import 'package:inxee_hr_application/Common_panels/profile_page.dart';
+import 'package:inxee_hr_application/employee_panels/employee_leave_page.dart';
+import 'package:inxee_hr_application/employee_panels/employee_panel.dart';
+import 'package:inxee_hr_application/employee_panels/employee_report_panel.dart';
+import 'package:inxee_hr_application/employee_panels/employee_salary_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class NavigationDrawerAdmin extends StatelessWidget {
-  NavigationDrawerAdmin({super.key});
+class NavigationDrawerEmployee extends StatelessWidget {
+  NavigationDrawerEmployee({super.key});
   final padding = EdgeInsets.symmetric(horizontal: 20);
 
   Future<String> getEmail() async {
@@ -121,24 +120,6 @@ class NavigationDrawerAdmin extends StatelessWidget {
                 onClicked: () => selectedItem(context, 2),
               ),
             ),
-            SizedBox(height: 16),
-            Padding(
-              padding: padding,
-              child: buildMenuIteam(
-                text: 'Check in Details',
-                icon: Icons.assignment_turned_in_sharp,
-                onClicked: () => selectedItem(context, 3),
-              ),
-            ),
-            SizedBox(height: 16),
-            Padding(
-              padding: padding,
-              child: buildMenuIteam(
-                text: 'Employee Details',
-                icon: Icons.people,
-                onClicked: () => selectedItem(context, 4),
-              ),
-            ),
             SizedBox(height: 24),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -186,42 +167,29 @@ class NavigationDrawerAdmin extends StatelessWidget {
       case 0:
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => AdminPanelHomeScreen(),
+            builder: (context) => EmployeePanelHomeScreen(),
           ),
         );
         break;
       case 1:
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => AdminSalaryPanel(),
+            builder: (context) => EmployeeSalaryPanel(),
           ),
         );
         break;
       case 2:
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => AdminLeavePanel(),
+            builder: (context) => EmployeeLeavePanel(),
           ),
         );
         break;
-      case 3:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => AdminEmployeeCheckInDetails(),
-          ),
-        );
-        break;
-      case 4:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => AdminEmployeesDetailsPage(),
-          ),
-        );
-        break;
+
       case 5:
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => AdminReportPanel(),
+            builder: (context) => EmployeeReportPanel(),
           ),
         );
         break;

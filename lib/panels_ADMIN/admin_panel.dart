@@ -1,7 +1,9 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inxee_hr_application/panels_ADMIN/admin_home_screen.dart';
-import 'package:inxee_hr_application/panels_ADMIN/attendance_page_admin.dart';
+import 'package:inxee_hr_application/Common_panels/home_screen.dart';
+import 'package:inxee_hr_application/Common_panels/attendance_page.dart';
 import 'package:inxee_hr_application/panels_ADMIN/navigationbar_admin.dart';
 
 class AdminPanelHomeScreen extends StatefulWidget {
@@ -23,7 +25,7 @@ class _AdminPanelHomeScreenState extends State<AdminPanelHomeScreen> {
 
         appBar: AppBar(
           backgroundColor: Colors.black,
-          elevation: 100,
+
           centerTitle: true,
           title: Text('A D M I N   P A N E L'),
 
@@ -69,10 +71,10 @@ class _AdminPanelHomeScreenState extends State<AdminPanelHomeScreen> {
         body: TabBarView(
           children: [
             //home tab
-            HomeAdmin(),
+            HomePage(),
 
             //attendance tab
-            AttendanceAdminPage(),
+            AttendancePage(),
           ],
         ),
       ),

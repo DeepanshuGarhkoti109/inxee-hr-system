@@ -97,7 +97,10 @@ class LeaveMethods {
   Future<void> applyLeave(
       {required String email,
       required Timestamp start,
-      required Timestamp end}) async {
+      required Timestamp end,
+      required String title,
+      required String application,
+      required Timestamp dateOfApplication}) async {
     final CollectionReference<Map<String, dynamic>> leaveDb =
         this._firestore.collection('leave-apps');
 
@@ -106,7 +109,17 @@ class LeaveMethods {
       'email': email,
       'start': start,
       'end': end,
+      'title': title,
+      'application': application,
+      'dateOfApplication': dateOfApplication,
     });
+
+    print("email: $email");
+    print("start: $start");
+    print("end: $end");
+    print("title: $title");
+    print("application: $application");
+    print("dateOfApplication: $dateOfApplication");
 
     print("Leave application generated with id ${leaveRef.id}");
   }
@@ -128,6 +141,9 @@ class LeaveMethods {
             'email': doc.data()['email'],
             'start': (doc.data()['start'] as Timestamp).toDate(),
             'end': (doc.data()['end'] as Timestamp).toDate(),
+            'title': doc.data()['title'],
+            'application': doc.data()['application'],
+            'dateOfApplication': doc.data()['dateOfApplication'],
           }
         });
       }
@@ -161,6 +177,39 @@ class LeaveMethods {
         return emailAndDays;
       },
     );
+
+    await leaveDb.doc(lId).update({'approved': true});
+
+    this.reduceLeaves(emailAndDays: emailAndDays);
+  }
+
+  Future<void> rejectLeave({required String lId}) async {
+    final CollectionReference<Map<String, dynamic>> leaveDb =
+        this._firestore.collection('leave-apps');
+
+    final List<Object> emailAndDays = await leaveDb
+        .doc(lId)
+        .update(<String, bool>{'approved': true}).then<List<Object>>(
+      (void _) async {
+        final List<Object> emailAndDays = await leaveDb
+            .doc(lId)
+            .get()
+            .then<List<Object>>(
+                (DocumentSnapshot<Map<String, dynamic>> doc) async {
+          final String email = doc.data()?['email'] as String;
+          final DateTime start = DateTime.parse(
+              (doc.data()?['start'] as Timestamp).toDate().toString());
+          final DateTime end = DateTime.parse(
+              (doc.data()?['end'] as Timestamp).toDate().toString());
+          return <Object>[email, end.difference(start).inDays];
+        });
+        print('Leave rejected for user ${emailAndDays[0]}');
+
+        return emailAndDays;
+      },
+    );
+
+    await leaveDb.doc(lId).delete();
 
     this.reduceLeaves(emailAndDays: emailAndDays);
   }

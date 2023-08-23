@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, curly_braces_in_flow_control_structures, body_might_complete_normally_nullable
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class TextFieldInput extends StatelessWidget {
   final TextEditingController textEditingController;
   final Widget? prefix;

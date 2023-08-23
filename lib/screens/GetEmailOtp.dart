@@ -59,7 +59,7 @@ class _GetEmailOtpState extends State<GetEmailOtp> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "An 4 digit code has been sent to",
+                    "A 4 digit code has been sent to",
                     style: GoogleFonts.lato(
                       fontSize: 16,
                     ),

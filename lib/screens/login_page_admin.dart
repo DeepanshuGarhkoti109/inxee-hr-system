@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, avoid_unnecessary_containers, unused_import
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, avoid_unnecessary_containers, unused_import, avoid_print, sized_box_for_whitespace
 
 import 'dart:isolate';
 
@@ -11,6 +11,7 @@ import 'package:inxee_hr_application/screens/otppage.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 
 import 'package:inxee_hr_application/widgets/text_field_input.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPageAdmin extends StatefulWidget {
   const LoginPageAdmin({super.key});
@@ -47,6 +48,9 @@ class _LoginPageAdminState extends State<LoginPageAdmin> {
     print(res);
 
     if (res == 'LOGGED_IN') {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('email', _emailcontroller.text);
+      
       setState(() {
         _authSuccessful = true;
       });

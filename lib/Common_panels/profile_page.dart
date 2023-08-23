@@ -1,19 +1,21 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, no_leading_underscores_for_local_identifiers, avoid_print, sized_box_for_whitespace
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:inxee_hr_application/widgets/dropdown_button.dart';
 import 'package:inxee_hr_application/widgets/text_field_input.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class AdminProfilePage extends StatefulWidget {
-  const AdminProfilePage({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  State<AdminProfilePage> createState() => _AdminProfilePageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _AdminProfilePageState extends State<AdminProfilePage> {
+class _ProfilePageState extends State<ProfilePage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
@@ -23,6 +25,14 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
   final TextEditingController _designationController = TextEditingController();
   final TextEditingController _dateofjoiningController =
       TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final profileData = {};
+
+  @override
+  void initState() {
+    super.initState();
+    getProfile();
+  }
 
   @override
   void dispose() {
@@ -34,6 +44,60 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
     _dateofbirthController.dispose();
     _designationController.dispose();
     _dateofjoiningController.dispose();
+    _ageController.dispose();
+  }
+
+  Future<String> getEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    String email = prefs.getString('email') ?? 'NAME';
+    print(email);
+
+    return email;
+  }
+
+  Future<void> getProfile() async {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+    final CollectionReference<Map<String, dynamic>> userDb =
+        _firestore.collection('users');
+
+    await userDb
+        .where('email', isEqualTo: await getEmail())
+        .get()
+        .then((querySnapshot) async {
+      final data = querySnapshot.docs[0].data();
+      profileData.addAll({
+        'fullName': data['fullName'] as String,
+        'phoneNumber': data['phoneNumber'] as String,
+        'email': data['email'],
+        'address': data['address'],
+        'dob': data['dob'],
+        'designation': data['designation'],
+        'dateOfJoining': data['dateOfJoining'],
+        'age': data['age']
+      });
+    });
+
+    print(profileData);
+    print(profileData['fullName']);
+  }
+
+  Future<void> updateProfile(newProfile) async {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+    final CollectionReference<Map<String, dynamic>> userDb =
+        _firestore.collection('users');
+
+    await userDb
+        .where('email', isEqualTo: await getEmail())
+        .get()
+        .then((querySnapshot) async {
+      querySnapshot.docs[0].reference.update(newProfile);
+    });
+
+    print(profileData);
+    print(profileData['fullName']);
   }
 
   @override
@@ -145,7 +209,7 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
                           textInputType: TextInputType.datetime,
                           prefix: Icon(Icons.calendar_month_outlined),
                           labeltext: 'DOB',
-                          hintText: 'dd/mm/yyyy',
+                          hintText: 'yyyy/mm/dd',
                           onpressed: () async {
                             DateTime? pickeddate = await showDatePicker(
                                 context: context,
@@ -177,13 +241,13 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
                   Row(
                     children: [
                       Container(
-                        width: 185,
+                        width: 210,
                         child: TextFieldInput(
                           textEditingController: _dateofjoiningController,
                           textInputType: TextInputType.datetime,
                           prefix: Icon(Icons.calendar_month_outlined),
                           labeltext: 'Date of joining',
-                          hintText: 'dd/mm/yyyy',
+                          hintText: 'yyyy/mm/dd',
                           onpressed: () async {
                             DateTime? pickeddate = await showDatePicker(
                                 context: context,
@@ -194,7 +258,7 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
                             if (pickeddate != null) {
                               setState(() {
                                 _dateofjoiningController.text =
-                                    DateFormat('dd/MM/yyyy').format(pickeddate);
+                                    DateFormat('yyyy/MM/dd').format(pickeddate);
                               });
                             }
                           },
@@ -202,13 +266,14 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
                       ),
                       SizedBox(width: 10),
                       Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black54),
-                              borderRadius: BorderRadius.circular(5)),
-                          width: 100,
-                          height: 47),
+                        width: 100,
+                        child: TextFieldInput(
+                          labeltext: 'Age ',
+                          prefix: Icon(Icons.calendar_today_rounded),
+                          textEditingController: _ageController,
+                          textInputType: TextInputType.number,
+                        ),
+                      ),
                     ],
                   ),
 
@@ -221,6 +286,20 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('Loading')),
                         );
+                        updateProfile({
+                          'fullName': _fullNameController.text,
+                          'phoneNumber': _phoneNumberController.text,
+                          'email': _emailController.text,
+                          'address': _addressController.text,
+                          'dob': Timestamp.fromDate(DateTime.parse(
+                              _dateofbirthController.text
+                                  .replaceAll('/', '-'))),
+                          'designation': _designationController.text,
+                          'dateOfJoining': Timestamp.fromDate(DateTime.parse(
+                              _dateofjoiningController.text
+                                  .replaceAll('/', '-'))),
+                          'age': _ageController.text,
+                        });
                       }
                     },
                     text: 'Save',

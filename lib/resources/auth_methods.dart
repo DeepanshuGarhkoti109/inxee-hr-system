@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unnecessary_this, avoid_print
+
 import 'dart:convert';
 import 'dart:math';
 

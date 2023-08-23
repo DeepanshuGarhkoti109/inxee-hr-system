@@ -1,8 +1,11 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inxee_hr_application/panels_ADMIN/admin_panel.dart';
 import 'package:inxee_hr_application/widgets/button_input.dart';
 import 'package:pinput/pinput.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AdminPhoneOtpLogin extends StatefulWidget {
   const AdminPhoneOtpLogin({super.key});
@@ -12,6 +15,17 @@ class AdminPhoneOtpLogin extends StatefulWidget {
 }
 
 class _AdminPhoneOtpLoginState extends State<AdminPhoneOtpLogin> {
+  Future<String> getEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    String email = prefs.getString('email') ?? 'NAME';
+    print(email);
+
+    return email;
+  }
+
+  String enteredPin = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,10 +83,14 @@ class _AdminPhoneOtpLoginState extends State<AdminPhoneOtpLogin> {
                   Wrap(
                     alignment: WrapAlignment.start,
                     children: [
-                      Text(
-                        "An 4 digit code has been sent to dhdhjdfxhdghdjhdgxhxhdfc",
-                        style: GoogleFonts.lato(
-                          fontSize: 18,
+                      FutureBuilder(
+                        future: getEmail(),
+                        initialData: "",
+                        builder: (context, snapshot) => Text(
+                          "An 4 digit code has been sent to ${snapshot.data!}",
+                          style: GoogleFonts.lato(
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ],
@@ -106,6 +124,7 @@ class _AdminPhoneOtpLoginState extends State<AdminPhoneOtpLogin> {
                               shape: BoxShape.rectangle),
                         ),
                         pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
+                        onCompleted: (value) => enteredPin = value,
                       ),
                     ),
                   ),
@@ -136,12 +155,14 @@ class _AdminPhoneOtpLoginState extends State<AdminPhoneOtpLogin> {
                   ButtonInput(
                     text: 'Login',
                     onTap: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AdminPanelHomeScreen(),
-                          ),
-                          (route) => false);
+                      if (enteredPin == "1111") {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AdminPanelHomeScreen(),
+                            ),
+                            (route) => false);
+                      }
                     },
                   ),
                 ],
