@@ -9,8 +9,10 @@ import 'package:flutter_cupertino_date_picker_fork/flutter_cupertino_date_picker
 class AttendancePage extends StatefulWidget {
   final DateTime? checkInTime;
   final DateTime? checkOutTime;
+  final String? email;
 
-  const AttendancePage({Key? key, this.checkInTime, this.checkOutTime})
+  const AttendancePage(
+      {Key? key, this.checkInTime, this.checkOutTime, this.email})
       : super(key: key);
 
   @override
@@ -35,12 +37,17 @@ class _AttendancePageState extends State<AttendancePage> {
   }
 
   Future<String> getEmail() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (widget.email == null) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    String email = prefs.getString('email') ?? 'NAME';
-    print(email);
+      String email = prefs.getString('email') ?? 'NAME';
+      print(email);
 
-    return email;
+      return email;
+    } else {
+      print(widget.email!);
+      return widget.email!;
+    }
   }
 
   Future<void> getAttendance() async {
@@ -69,21 +76,21 @@ class _AttendancePageState extends State<AttendancePage> {
       });
     });
 
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList('attendanceHistory', []);
-    await prefs.setStringList('attendanceHistory', attendanceHistory);
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // await prefs.setStringList('attendanceHistory', []);
+    // await prefs.setStringList('attendanceHistory', attendanceHistory);
 
-    saveAttendanceHistory();
+    // saveAttendanceHistory();
   }
 
   Future<void> loadAttendanceHistory() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    attendanceHistory = prefs.getStringList('attendanceHistory') ?? [];
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // attendanceHistory = prefs.getStringList('attendanceHistory') ?? [];
   }
 
   Future<void> saveAttendanceHistory() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    print(prefs.getStringList('attendanceHistory'));
+    print("86${prefs.getStringList('attendanceHistory')!}");
     await prefs.setStringList('attendanceHistory', []);
 
     String checkInTimeString = DateFormat('HH:mm').format(DateTime.now());
@@ -106,11 +113,12 @@ class _AttendancePageState extends State<AttendancePage> {
         time.day == currentDate.day) {
       return DateFormat('HH:mm a').format(time);
     } else {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      List<String>? lines = prefs.getStringList('attendanceHistory');
-      print(lines);
+      // SharedPreferences prefs = await SharedPreferences.getInstance();
+      // List<String>? lines = prefs.getStringList('attendanceHistory');
+      List<String> lines = attendanceHistory;
+      print("111$lines");
 
-      if (lines != null) {
+      // if (lines != null) {
         for (String line in lines) {
           if (line.isNotEmpty) {
             List<String> times = line.split('\n');
@@ -118,7 +126,7 @@ class _AttendancePageState extends State<AttendancePage> {
               DateTime checkInTime = DateTime.parse(times[0]);
               DateTime checkOutTime = DateTime.parse(times[1]);
 
-              print(times);
+              print("121$times");
               if (isCheckIn) {
                 if (checkInTime.year == currentDate.year &&
                     checkInTime.month == currentDate.month &&
@@ -135,7 +143,7 @@ class _AttendancePageState extends State<AttendancePage> {
             }
           }
         }
-      }
+      // }
 
       return '--/--';
     }

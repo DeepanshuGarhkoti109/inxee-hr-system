@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unused_import
 
-// TODO: FIX ADMIN ATTENDANCE
 // TODO: ADD FUNCTIONALITY TO SEND EMAILS TO THE ADMIN FOR OTP
 // TODO: ADD SALARY DETAILS
 
@@ -9,6 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:inxee_hr_application/employee_panels/employee_panel.dart';
 import 'package:inxee_hr_application/firebase_options.dart';
+import 'package:inxee_hr_application/panels_ADMIN/check_in_details.dart';
 import 'package:inxee_hr_application/resources/leave_methods.dart';
 
 import 'package:inxee_hr_application/screens/login_page_employee.dart';
